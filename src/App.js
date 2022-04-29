@@ -1,19 +1,54 @@
-import React, { Fragment, useEffect, useRef,useState } from 'react';
+import React, { Fragment, useEffect, useRef,useState} from 'react';
 import {Controller,Scene} from 'react-scrollmagic'
 import '../src/App.css'
-import Navbar from './Navbar';
-import logo from './scheddar.png';
-import {Timeline, Tween} from 'react-gsap'
-import 'jquery/dist/jquery'
 import 'bootstrap/dist/css/bootstrap.min.css' 
-
-const IMAGE_URL ='/frames2/Vid5';
+import Sidebar from './Sidebar';
+import Header from './Header';
+import gsap from 'gsap';
+const IMAGE_URL ='/frames54/Vid2';
 const App = () => {
   let [counter,setCounter] = useState(1)
   let canvasRef = React.createRef();
+  const [activeSections,setActiveSections] = useState({
+    aboutUs:false,
+    ourClients:false,
+    portfolio:false
+  })
   const html = document.documentElement;
   const frameCount = 714;
-  const section1 = useRef(null)
+  const changeCounter = (e,section)=>{
+    if(section === 1)
+    {
+
+      if(e.type === 'start')
+      setCounter(1)
+      if(e.type === 'leave' && e.scrollDirection === 'FORWARD')
+      setCounter(2)
+      if(e.type === 'end' && e.scrollDirection === 'REVERSE')
+      setCounter(1)
+    }
+    else if(section === 2){
+
+      if(e.type === 'start')
+      setCounter(2)
+      if(e.type === 'leave' && e.scrollDirection === 'REVERSE')
+      setCounter(1)
+    }
+  }
+  const scrollSpy = (counter)=>{
+    if(counter === 1)
+        setActiveSections({
+        aboutUs:true,
+        ourClients:false,
+        portfolio:false
+      })
+      if(counter === 2)
+      setActiveSections({
+        aboutUs:false,
+        ourClients:true,
+        portfolio:false
+      })
+  }
   const preloadImages = () => {
     for (let i = 1; i < frameCount; i++) {
       const img = new Image();
@@ -44,6 +79,12 @@ const App = () => {
       requestAnimationFrame(() => updateImage(frameIndex + 1, img, ctx));
     });
   };
+  // const tween = ()=>{
+  //   gsap.to(".checkOut",{color:'#fff',ease:'power3.in'})
+  // }
+  const fadeIn = () =>{
+    gsap.fromTo(".fives",{opacity:0},{opacity:1,ease:'power3.in'})
+  }
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -52,79 +93,61 @@ const App = () => {
     preloadImages();
     onScroll(img, ctx);
   }, []);
-
+  useEffect(()=>{
+    scrollSpy(counter)
+  },[counter])
   const currentFrame = (index) =>`${IMAGE_URL}${index.toString().padStart(4, '0')}.png`;
 
   return ( <Fragment>
-          <section>
-            <div className='uppderheader'>
-              <div className='logo'>
-              <img src={logo} alt = "logo" className='logoImg'/>
-              </div>
-              <div className='counter'>
-                <h1>{counter}/03</h1>
-              </div>
-              <div className='contactUs'>
-                  <h1>contact us</h1>
-              </div>
-            </div>
+            <Sidebar activeSections = {activeSections}/>
+           <Header counter={counter}/>
             <canvas ref={canvasRef} id='globe' width={1920} height = {1080} />
-          <Navbar  />
-          <div className='bigContainer'>
+            <div className='bigContainer'  >
             <Controller>
               <Scene pin duration={500}  >
                 {(p,e)=>{
-                   if(e.type === 'start')
-                   setCounter(1)
-                   if(e.type === 'leave' && e.scrollDirection === 'FORWARD')
-                   setCounter(2)
-                   if(e.type === 'end' && e.scrollDirection === 'REVERSE')
-                   setCounter(1)
-                  return <div className='sec1Container' ref={section1}>
-                  <h2 className='section1Text' >We build custom <span className='specialBlue'>softwares</span>  to ensure your business's <span  className='specialBlue'>success</span></h2>
+                   changeCounter(e,1)
+                  return <div className='aboutUsContainer' id='aboutUsContainer' >
+                  <h2 className='aboutUs' >We build custom <span className='specialBlue'>softwares</span>  to ensure your business's <span  className='specialBlue'>success</span></h2>
+                  <div className='sectionOneFooter w-100 d-flex justify-content-around'>
+                <h3>designing.</h3>
+                <h3>building.</h3>
+              </div>
                   </div>
                 }}
 
               </Scene>
-              <Scene pin duration={500} offset = {100} >
+              <Scene pin duration={250} offset = {1700} reverse >
                 {(p,e)=>{
-                  if(e.type === 'start')
-                  setCounter(2)
-                  if(e.type === 'leave' && e.scrollDirection === 'REVERSE')
-                  setCounter(1)
-                  return <div className='sec2Container'>
-                  <h2 className='section2Text specialBlue'  id='section2Text'>check out our latest work</h2>
+                  changeCounter(e,2)
+                  // tween()
+                  
+                  return <div className='checkOutContainer' id='checkOutContainer' >
+                  <h2 className='checkOut specialBlue'  id='checkOut'>check out our latest work</h2>
+                  </div>
+                }}
+              </Scene>
+              <Scene pin duration={600} offset = {400} reverse>
+                {(p,e)=>{
+                  // fadeIn()
+                  return <div className='fivesContainer'id='fivesContainer' >
+                  <h2 className='fives'> <span className='pink'>fives</span>, California’s next NFT marketplace.</h2>
                   </div>
                 }}
 
               </Scene>
-              <Scene pin duration={500} offset = {100}>
-                <Timeline target={
-                   <div className='sec3Container'>
-                   <h2 className='section2Text' > <span className='pink'>fives</span> , California’s next NFT marketplace.</h2>
-                   </div>}>
-                  <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} duration={.5} />
-               
-                </Timeline>
-
-              </Scene>
-              <Scene pin duration={1300}  offset = {100}>
-                  <div>
-                  <h2 className='section3Text'id='section4Text' > <span className='specialBlue'>Thine.co</span>,  Assessing lawyers all over the US at top legal firms.</h2>
+              <Scene pin duration={1300}  offset = {100} reverse>
+                  <div className='thineContainer'>
+                  <h2 className='thine' > <span className='specialBlue'>Thine.co</span>,  Assessing lawyers all over the US at top legal firms.</h2>
                   </div>
               </Scene>
-              <Scene pin duration={1000}  offset = {100}>
-                  <div>
-                  <h2 className='section4Text' > <span className='pink'>Iubenda.com</span>, The world’s top compliance solutions company.</h2>
-                  </div>
+              <Scene pin duration={1000}  offset = {100} reverse>
+                <div className='iubendaContainer'>
+                <h2 className='iubenda' > <span className='pink'>Iubenda.com</span>, The world’s top compliance solutions company.</h2>
+                </div>
                 </Scene>
             </Controller>
-            <div className='extraDiv'>
-                  <h1>HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII</h1>
-            </div>
           </div>
-          </section>
-
   </Fragment>
     
   );

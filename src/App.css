@@ -6,23 +6,18 @@
   box-sizing: border-box;
   overflow-x: hidden;
 }
-
-
-
 ::-webkit-scrollbar {
-  width: 05px;
+  width: 5px;
 }
-
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px rgb(255, 255, 255); 
   border-radius: 10px;
 }
- 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #FF015D; 
-  border-radius: 10px;
+  /* border-radius: 40px; */
 }
 
 
@@ -32,32 +27,31 @@
   display: flex;
   align-items: center;
 }
-.section4Text{
+.iubenda{
   font-size: 60px;
   color: #ffffff;
 margin-left: 40px;
 width: 30%;
 }
-.section1Text{
+.aboutUs{
   font-size: 65px;
   color: #064477;
-  display: inline-block;
-margin-left: 40px;
 }
-.section3Text{
+.thine{
   font-size: 65px;
   color: #064477;
   display: inline-block;
 margin-left: 40px;
 width: 40%;
 }
-.section2Text{
+.checkOut,.fives{
   font-size: 60px;
   color: #ffffff;
   text-align: left;
   width: 40%;
   margin-left: 30px;
 }
+
 .section1Text:first-child{
   width: 100%;
 }
@@ -66,7 +60,8 @@ width: 40%;
 }
 
 html {
-  height: 200vh;
+  scroll-behavior: smooth;
+  height: 100vh;
 }
 
 body {
@@ -84,28 +79,24 @@ canvas {
   width: 100vw;
   z-index: 100;
 }
-
-.content{
-  position: absolute;
-  left: 5%;
-  z-index: 300;
-}
-.navbar{
+.sidebar{
   transform: rotate(90deg);
-  position: fixed;
+  position: fixed !important;
   z-index: 2000;
-  left: 46%;
-  color: #064477;
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  color: #064477 !important;
   font-size: 25px;
-  top: 50%;
-
+  height: 100vh;
+  right: -12%;
+  top: 8%;
+} 
+.link{
+  margin-right: 30px;
+}
+.link:hover{
+  color: #FF015D  !important;
 }
 li{
   list-style: none;
-  margin-right: 30px;
   transition: .3s ease all;
 }
 .li-white{
@@ -116,19 +107,13 @@ li{
 }
 .bigContainer{
   width: 100vw;
-  position: absolute;
+  position: relative;
   height: 1200vh;
   overflow: hidden;
   z-index: 200;
 }
-
-.checkOut{
-  opacity: .3;
-  transform: translateY(27px);
-  text-align: center;
-}
 .pink{
-  color: #FF015D;
+  color: #FF015D !important;
 }
 
 li:hover{
@@ -141,33 +126,254 @@ li:hover{
 
 }
 .logoImg{
-  margin-top: 10px;
   width: 100%;
   font-family: 'Poppins', sans-serif;
 }
 .logo{
   width: 8%;
 }
-.uppderheader{
+.header{
   position: fixed;
   top: 0%;
-  width: 100%;
   z-index: 4000;
-  padding: 20px;
+  padding: 15px 32px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: #0B91FF;
+}
+
+h1,h2{
   overflow: hidden;
-  font-size: 10px;
 }
-
-
-.extraDiv{
-  background-color: #FF015D;
-  font-size: 6rem;
-  height: 100vh;
+.header h1{
+  font-size: 25px;
+}
+.sectionOneFooter{
+  margin-top: 100px;
+}
+.sectionOneFooter h3{
+  overflow: hidden;
 
 }
+/*Media Screen */
+@media screen and (min-width: 600px) {
+  /* //For Tablets */
+      .container {
+          width: 100;
+      }
+  }
+  
+  @media screen and (min-width: 768px) and (max-width:991px) {
+  /* //For Laptops */
+      .bigContainer {
+          width: 100vw;
+          height: 1500vh;
+      }
+      .aboutUs{
+        font-size: 1.8rem;
+        margin-left: 0;
+      }
+      .sectionOneFooter h3{
+        font-size: 1rem;
+      }
+      .sidebar{
+        font-size: 1rem;
+        right:-20%;
+      }
+      .checkOut{
+        font-size: 2.5rem;
+      }
+      .fives{
+        font-size: 2.5rem;
+      }
+      .thine{
+        font-size: 2rem;
+        height: 40vh;
+      }
+      .iubenda{
+        height: 200vh;
+        font-size: 2rem;
+      }
+      .header h1{
+        font-size: .8rem;
+      }
+
+  }
+
+  
+  @media screen and (min-width: 992px) and (max-width:1279px) {
+  /* //For Large Laptops */
+      .bigContainer {
+          width: 100vw;
+      }
+
+      .aboutUs{
+        font-size: 2rem;
+        margin-left:0 ;
+      }
+      .thine{
+        height: 50vh;
+        font-size: 3rem;
+      }
+      .fives{
+        height: 70vh;
+        font-size: 3rem;
+      }
+      .iubendaContainer{
+        width: 100vw;
+
+      }
+      .iubenda{
+        height: 150vh;
+        font-size: 2.5rem;
+      }
+      .checkOut{
+        font-size: 3rem;
+      }
+      .sidebar{
+        font-size: 1rem;
+        right: -17%;
+      }
+  }
+  
+  @media screen and (min-width: 1280px) and (max-width:1919px) {
+  /* //For Big TV's (HD Screens)  */
+      .bigContainer{
+        width: 100vw;
+      }
+      .aboutUsContainer{
+        height: 100vh;
+        width: 100vw;
+        padding: 30px;
+      }
+
+      .checkOutContainer{
+        height: 60vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .checkOut{
+        font-size: 4rem;
+        color: white;
+      }
+      .iubendaContainer{
+        width: 100vw;
+        font-size: 3.5rem;
+      }
+      .iubenda{
+        font-size: 3.5rem;
+      }
+
+
+  }
+  
+  
+  @media screen and (min-width: 1920px) and (max-width:3839px) {
+  /* //For Projectors or Higher Resolution Screens (Full HD) */
+    .aboutUsContainer{
+        height: 100vh;
+        padding: 50px;
+      }
+      .checkOutContainer{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+      }
+      .checkOut{
+        font-size: 4rem;
+      }
+      
+      .fivesContainer{
+        height: 100vh;
+        display: flex;
+        align-items: flex-start;
+      }
+      .fives,.thine{
+        font-size: 5rem;
+      }
+      .iubendaContainer{
+        height: 200vh;
+        display: flex;
+        align-items: flex-end;
+      }
+      .iubenda{
+        font-size: 5rem;
+
+      }
+      .sidebar{
+        right: -9%;
+        top: -20%;
+      }
+
+  }
+  @media screen and (min-width: 3840px){
+  /* //For 4K Displays (Ultra HD) */
+      .bigContainer {
+          width: 100vw;
+      }
+      .aboutUs{
+        font-size: 14rem;
+      }
+      .aboutUsContainer{
+        padding: 50px;
+        height: 100vh;
+      }
+      .aboutUsContainer h3{
+        font-size: 4rem;
+      }
+      .header{
+        width: 100vw;
+      }
+      .header h1{
+        font-size: 4.5rem;
+        padding: 40px 0;
+      }
+      .sidebar{
+        background-color: #064477;
+        top: 0;
+        right: -10%;
+        font-size: 5rem;
+      }
+      .checkOut{
+        font-size: 12rem;
+        height: 200vh;
+        display: flex;
+        align-items: center;
+      }
+      .fives{
+        font-size: 12rem;
+      }
+      .fivesContainer{
+        height: 200vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      .thine{
+        font-size: 12rem;
+
+      }
+      .thineContainer{
+        height: 200vh;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .iubendaContainer{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      .iubenda{
+        font-size: 10rem;
+      }
+  }
+
+
+
 
 
 
