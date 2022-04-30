@@ -4,9 +4,36 @@ import '../src/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css' 
 import Sidebar from './Sidebar';
 import Header from './Header';
+import Lottie from 'react-lottie';
+import nodeJsLogo from './nodeJsLogo.svg'
+import animationData2 from './react-animation.json'
+import animationData from './ui-ux.json'
+import * as FiIcons from 'react-icons/fi'
+import * as AiIcons from 'react-icons/ai'
+import * as SiIcons from 'react-icons/si'
+
+import gsap from 'gsap';
+// import { Tween } from 'react-gsap';
+
 //===================== Image URL ==================== 
-const IMAGE_URL ='/frames54/Vid2';
+const IMAGE_URL ='/frames45/Vid1';
 const App = () => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
+  const defaultOptions2 = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData2,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
   let [counter,setCounter] = useState(1)
   let canvasRef = React.createRef();
   const [activeSections,setActiveSections] = useState({
@@ -15,7 +42,7 @@ const App = () => {
     portfolio:false
   })
   const html = document.documentElement;
-  const frameCount = 714;
+  const frameCount = 741;
   const changeCounter = (e,section)=>{
     if(section === 1)
     {
@@ -34,6 +61,12 @@ const App = () => {
       if(e.type === 'leave' && e.scrollDirection === 'REVERSE')
       setCounter(1)
     }
+    else if(section === 3){
+      if(e.type === 'start')
+      setCounter(3)
+      if(e.type === 'leave' && e.scrollDirection === 'REVERSE')
+      setCounter(2)
+    }
   }
   const scrollSpy = (counter)=>{
     if(counter === 1)
@@ -47,6 +80,12 @@ const App = () => {
         aboutUs:false,
         ourClients:true,
         portfolio:false
+      })
+      if(counter === 3)
+      setActiveSections({
+        aboutUs:false,
+        ourClients:false,
+        portfolio:true
       })
   }
   const preloadImages = () => {
@@ -111,7 +150,7 @@ const App = () => {
                   </div>
                 }}
               </Scene>
-              <Scene pin duration={250} offset = {1700} reverse >
+              <Scene pin duration={400} offset = {100} reverse >
                 {(p,e)=>{
                   changeCounter(e,2)
                   // tween()
@@ -121,7 +160,7 @@ const App = () => {
                   </div>
                 }}
               </Scene>
-              <Scene pin duration={600} offset = {400} reverse>
+              <Scene pin duration={800} offset = {100} reverse>
                 {(p,e)=>{
                   return <div className='fivesContainer'id='fivesContainer' >
                   <h2 className='fives'> <span className='pink'>fives</span>, California’s next NFT marketplace.</h2>
@@ -129,15 +168,49 @@ const App = () => {
                 }}
 
               </Scene>
-              <Scene pin duration={1300}  offset = {100} reverse>
+              <Scene pin duration={1400}  offset = {100} reverse>
                   <div className='thineContainer'>
                   <h2 className='thine' > <span className='specialBlue'>Thine.co</span>,  Assessing lawyers all over the US at top legal firms.</h2>
                   </div>
               </Scene>
-              <Scene pin duration={1000}  offset = {100} reverse>
+              <Scene pin duration={2000}  offset = {100} reverse>
                 <div className='iubendaContainer'>
                 <h2 className='iubenda' > <span className='pink'>Iubenda.com</span>, The world’s top compliance solutions company.</h2>
                 </div>
+                </Scene>
+                <Scene>
+                <h1 className='ourServices'>Our Services</h1>
+                </Scene>
+                <Scene>
+                  {(p,e)=>{
+                    changeCounter(e,3);
+                    return <div className='UIUX'>
+                        <Lottie options={defaultOptions} height={1000} width={1000} />
+                        <div className='UX-softwares'>
+                    <h1 className='figma '> <FiIcons.FiFigma className='#000'/> Figma</h1>
+                    <h1 className='adobeXD'> <SiIcons.SiAdobexd color='#430134'/> Adobe XD</h1>
+                    <h1 className = "sketch"> <AiIcons.AiOutlineSketch color='#FDAF00'/> Sketch</h1>
+                    </div>
+                  </div>
+                  }}
+                </Scene>
+                <Scene>
+                  <div className = "frontendDevelopmentContainer">
+                    <h1 className='specialBlue frontendTitle'>Frontend Development</h1>
+                    <div className='reactJsContainer'>
+                      <h2>ReactJs</h2>
+                      <Lottie options={defaultOptions2} height={300} width={300} />
+                    </div>
+                  </div>
+                </Scene>
+                <Scene>
+                <div className = "backendContainer">
+                    <h1 className='specialBlue backendTitle'>Backend Development</h1>
+                    <div className='reactJsContainer'>
+                      <h2>NodeJs</h2>
+                      <img src={nodeJsLogo} alt = 'nodeJs Logo '/>
+                    </div>
+                  </div>
                 </Scene>
             </Controller>
           </div>
