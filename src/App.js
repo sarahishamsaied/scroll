@@ -4,7 +4,7 @@ import '../src/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css' 
 import Sidebar from './Sidebar';
 import Header from './Header';
-import gsap from 'gsap';
+//===================== Image URL ==================== 
 const IMAGE_URL ='/frames54/Vid2';
 const App = () => {
   let [counter,setCounter] = useState(1)
@@ -79,12 +79,7 @@ const App = () => {
       requestAnimationFrame(() => updateImage(frameIndex + 1, img, ctx));
     });
   };
-  // const tween = ()=>{
-  //   gsap.to(".checkOut",{color:'#fff',ease:'power3.in'})
-  // }
-  const fadeIn = () =>{
-    gsap.fromTo(".fives",{opacity:0},{opacity:1,ease:'power3.in'})
-  }
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -115,7 +110,6 @@ const App = () => {
               </div>
                   </div>
                 }}
-
               </Scene>
               <Scene pin duration={250} offset = {1700} reverse >
                 {(p,e)=>{
@@ -129,7 +123,6 @@ const App = () => {
               </Scene>
               <Scene pin duration={600} offset = {400} reverse>
                 {(p,e)=>{
-                  // fadeIn()
                   return <div className='fivesContainer'id='fivesContainer' >
                   <h2 className='fives'> <span className='pink'>fives</span>, California’s next NFT marketplace.</h2>
                   </div>

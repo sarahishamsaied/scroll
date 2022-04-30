@@ -15,13 +15,7 @@
     "react-gsap": "^3.2.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "react-scroll-motion": "^0.2.6",
     "react-scrollmagic": "^2.3.0",
-    "react-scrollspy-nav": "^1.2.4",
-    "react-ui-scrollspy": "^2.1.0",
-    "react-video-scroll": "^1.0.1",
-    "reactstrap": "^9.0.2",
-    "reactstrap-scrollspy": "^0.1.1",
     "scrollmagic": "^2.0.8",
     "web-vitals": "^2.1.4"
   },
