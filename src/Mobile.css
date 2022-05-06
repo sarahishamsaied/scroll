@@ -1,0 +1,163 @@
+:root{
+    --dark-blue: #064477;
+}
+.container{
+    height: 2000vh;
+}
+.aboutUs-mobile{
+    font-size: 2.5rem;
+    width: 100vw;
+    padding: 20px;
+    text-align: center;
+}
+.checkOut-mobile{
+    font-size: 2.5rem;
+    text-align: center;
+    width: 100vw;
+    color: var(--dark-blue);
+}
+.progress{
+    width: 10%;
+    height: 10px;
+    background-color: #064477;
+    position: fixed;
+    bottom: 1%;
+}
+h1,h2{
+    overflow: hidden;
+}
+.fivesContainer-mobile,.iubendaContainer-mobile{
+    color: var(--dark-blue);
+    height: 100vh;
+    width: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.thineContainer-mobile{
+    color: var(--dark-blue);
+    height: 100vh;
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+.thine-mobile{
+    margin: auto;
+}
+.fives-mobile{
+    width: 60%;
+    font-size: 2.1rem;
+    padding: 1.4rem;
+}
+.fivesMobileTitle{
+    font-size: 5rem;
+    
+}
+.fivesGlobe{
+    padding: 10px;
+    width: 45%;
+}
+.thineMobileTitle{
+    width: 100vw;
+    font-size:5rem ;
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.thine-mobile{
+    width: 50%;
+    font-size: 1.9rem;
+}
+.iubendaMobileTitle{
+    color: var(--dark-blue);
+    width: 100vw;
+    font-size: 3rem;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iubenda-mobile{
+    width: 50%;
+    font-size: 2rem;
+    margin: auto;
+}
+
+.ux-softwares-mobile{
+    text-align: center;
+    font-size: 3rem;
+    width: 100vw;
+}
+.frontendTitle-mobile{
+    font-size: 3rem;
+    text-align: center;
+    color: var(--dark-blue);
+
+}
+.reactJs-mobile{
+    font-size: 2rem;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--dark-blue);
+}
+.nodeJs-mobile,.backendTitle-mobile{
+    text-align: center;
+    color: var(--dark-blue);
+}
+.backendTitle-mobile{
+    font-size: 3rem;
+}
+.nodeJs-mobile{
+    font-size: 2rem;
+}
+.space{
+    height: 200vh;
+    width: 100vw;
+}
+@media screen and (min-width:700px) and (max-width:992px) {
+    .thine-mobile{
+        font-size: 1.5rem;
+        height: 30%;
+    }
+    .fivesContainer-mobile{
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100vw;
+    }
+    .textContainer h2{
+       margin: auto;
+    }
+    .fivesContainer-mobile .textContainer{
+    }
+    .thineContainer-mobile{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        overflow: hidden;
+    }
+    .thineMobileTitle{
+        width: 100vw;
+    }
+    .iubendaContainer-mobile{
+        flex-direction: row;
+    }
+    .iubendaContainer-mobile{
+        width: 100vw;
+        overflow: hidden;
+    }
+    .iubenda-mobile{
+        border: 1px oslid red;
+    }
+}

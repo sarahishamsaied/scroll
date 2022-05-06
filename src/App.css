@@ -88,6 +88,7 @@ canvas {
   height: 100vh;
   right: -12%;
   top: 8%;
+  overflow: hidden;
 } 
 .link{
   margin-right: 30px;
@@ -108,7 +109,7 @@ li{
 .bigContainer{
   width: 100vw;
   position: relative;
-  height: 2000vh;
+  height: 2045vh;
   overflow: hidden;
   z-index: 200;
 }
@@ -117,6 +118,7 @@ li{
   padding: 50px;
   margin: auto;
   font-size: 5rem;
+  background-color: white;
 }
 .aboutUs::selection,.aboutUs span::selection{
   background-color: #fc02022d;
@@ -172,6 +174,7 @@ h1,h2{
   flex-direction: column;
   align-items: flex-start;
   justify-content: start;
+  background-color: white;
 }
 .UX-softwares{
   width: 100%;
@@ -219,7 +222,7 @@ h1,h2{
   /* //For Laptops */
       .bigContainer {
           width: 100vw;
-          height: 1500vh;
+          height: 3300vh;
       }
       .aboutUs{
         font-size: 1.8rem;
@@ -232,8 +235,16 @@ h1,h2{
         font-size: 1rem;
         right:-20%;
       }
+      .frontendDevelopmentContainer{
+        overflow: hidden;
+      }
       .checkOut{
         font-size: 2.5rem;
+        color: white;
+      }
+      .ui-ux-icon{
+        margin: auto;
+        border: 1px solid red;
       }
       .fives{
         font-size: 2.5rem;
@@ -249,14 +260,31 @@ h1,h2{
       .header h1{
         font-size: .8rem;
       }
+      .figma,.adobeXD,.sketch{
+        font-size: 1.3rem;
+      }
+      .ourServices{
+        font-size: 3rem;
+      }
+      .frontendTitle,.backendTitle{
+        font-size: 2rem;
+      }
+      .reactJsContainer h2{
+        font-size: 1.9rem;
+      }
+      .reactIcon{
+        width: 10% !important;
+        background-color: #064477;
+      }
 
   }
 
   
   @media screen and (min-width: 992px) and (max-width:1279px) {
-  /* //For Large Laptops */
-      .bigContainer {
+  /* //For Large Laptops */  
+  .bigContainer {
           width: 100vw;
+          height: 2500vh;
       }
 
       .aboutUs{
@@ -281,10 +309,18 @@ h1,h2{
       }
       .checkOut{
         font-size: 3rem;
+        color: white;
       }
       .sidebar{
         font-size: 1rem;
         right: -17%;
+      }
+      .frontendTitle,.backendTitle{
+        font-size: 3rem;
+      }
+      .frontendDevelopmentContainer{
+        overflow: hidden;
+        margin-top: 0;
       }
   }
   
@@ -292,18 +328,22 @@ h1,h2{
   /* //For Big TV's (HD Screens)  */
       .bigContainer{
         width: 100vw;
+        height: 2090vh;
       }
       .aboutUsContainer{
         height: 100vh;
         width: 100vw;
         padding: 30px;
       }
+      .aboutUs{
+        font-size: 3rem;
+      }
 
       .checkOutContainer{
-        height: 60vh;
+        height: 90vh;
         display: flex;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-end;
       }
       .checkOut{
         font-size: 4rem;
@@ -312,9 +352,16 @@ h1,h2{
       .iubendaContainer{
         width: 100vw;
         font-size: 3.5rem;
+        height: 70vh;
+        display: flex;
+        align-items: flex-end;
+
       }
       .iubenda{
         font-size: 3.5rem;
+      }
+      .sidebar{
+        overflow: hidden;
       }
 
 
@@ -322,7 +369,10 @@ h1,h2{
   
   
   @media screen and (min-width: 1920px) and (max-width:3839px) {
-  /* //For Projectors or Higher Resolution Screens (Full HD) */
+  /* //For Projectors or Higher Resolution Screens (Full HD) */ 
+  .bigContainer{
+      height: 1900vh;
+    }
     .aboutUsContainer{
         height: 100vh;
         padding: 50px;
@@ -335,28 +385,58 @@ h1,h2{
       }
       .checkOut{
         font-size: 4rem;
+        height: 90vh;
+        display: flex;
+        align-items: flex-end;
+        color: white;
+        overflow: hidden;
       }
-      
+      .thineContainer{
+        height: 100vh;
+        align-items: center;
+      }
       .fivesContainer{
         height: 100vh;
         display: flex;
-        align-items: flex-start;
+        align-items: flex-end;
       }
       .fives,.thine{
         font-size: 5rem;
       }
       .iubendaContainer{
-        height: 200vh;
+        height: 100vh;
         display: flex;
-        align-items: flex-end;
+        align-items: flex-start;
       }
+
       .iubenda{
         font-size: 5rem;
 
       }
       .sidebar{
         right: -9%;
-        top: -20%;
+        top: 0;
+        overflow: hidden;
+      }
+      .backendContainer,.frontendDevelopmentContainer{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0;
+      }
+      .frontendDevelopmentContainer h2,.backendContainer h2{
+        font-size: 5rem;
+      }
+      .backendContainer img{
+        width: 90%;
+      }
+      .frontendTitle{
+        font-size: 6rem;
+      }
+      .backendTitle{
+        font-size: 6rem;
       }
 
   }
@@ -364,6 +444,13 @@ h1,h2{
   /* //For 4K Displays (Ultra HD) */
       .bigContainer {
           width: 100vw;
+          height: 1700vh;
+      }
+      .UX-softwares h1{
+        font-size: 10rem;
+      }
+      .ourServices{
+        font-size: 13rem;
       }
       .aboutUs{
         font-size: 14rem;
@@ -420,6 +507,25 @@ h1,h2{
       }
       .iubenda{
         font-size: 10rem;
+      }
+      .backendContainer,.frontendDevelopmentContainer{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .frontendDevelopmentContainer h2,.backendContainer h2{
+        font-size: 10rem;
+      }
+      .backendContainer img{
+        width: 90%;
+      }
+      .frontendTitle{
+        font-size: 11rem;
+      }
+      .backendTitle{
+        font-size: 11rem;
       }
   }
 
