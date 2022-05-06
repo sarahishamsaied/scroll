@@ -138,8 +138,7 @@ h1,h2{
     .textContainer h2{
        margin: auto;
     }
-    .fivesContainer-mobile .textContainer{
-    }
+
     .thineContainer-mobile{
         width: 100vw;
         display: flex;

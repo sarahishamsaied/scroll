@@ -1,21 +1,17 @@
-import React, { Fragment,useRef,useEffect, useState } from 'react'
+import React, { Fragment,useEffect } from 'react'
 import './Mobile.css';
 import * as FiIcons from 'react-icons/fi';
 import * as AiIcons from 'react-icons/ai';
 import * as SiIcons from 'react-icons/si';
 import UIUX from './UIUX'
-import { FadeIn, ScrollContainer,ScrollPage,Sticky,MoveOut,batch,Fade,Animator,ZoomIn,StickyIn ,FadeUp, MoveIn, ZoomOut} from 'react-scroll-motion'
+import { FadeIn, ScrollContainer,ScrollPage,Sticky,MoveOut,batch,Fade,Animator,ZoomIn,StickyIn , MoveIn, ZoomOut} from 'react-scroll-motion'
 import ReactLottie from './ReactLottie';
 import NodeJs from './NodeJs';
 import fivesImg from './fives-globe.png'
 import thineLogo from './thine-globe.png'
 import iubendaImg from './iubenda-globe.png'
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger'
-//to ensure your business's <span className='specialBlue'>success</span>  </h1>
 export default function Mobile() {
 
-    const [counter,setCounter] = useState(1)
     useEffect(()=>{
    
        

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef,useState} from 'react';
+import React, { Fragment, useEffect,useState} from 'react';
 import {Controller,Scene} from 'react-scrollmagic'
 import '../src/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css' 
@@ -11,10 +11,6 @@ import animationData from './ui-ux.json'
 import * as FiIcons from 'react-icons/fi'
 import * as AiIcons from 'react-icons/ai'
 import * as SiIcons from 'react-icons/si'
-
-import gsap from 'gsap';
-// import { Tween } from 'react-gsap';
-
 //===================== Image URL ==================== 
 const IMAGE_URL ='/frames45/Vid1';
 const Desktop = () => {
