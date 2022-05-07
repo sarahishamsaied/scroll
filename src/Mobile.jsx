@@ -10,6 +10,7 @@ import NodeJs from './NodeJs';
 import fivesImg from './fives-globe.png'
 import thineLogo from './thine-globe.png'
 import iubendaImg from './iubenda-globe.png'
+import scheddarLogo from './scheddar.png'
 export default function Mobile() {
 
     useEffect(()=>{
@@ -18,6 +19,7 @@ export default function Mobile() {
     },[])
   return <Fragment>
       <div className='container'>
+      <img src={scheddarLogo} className = "scheddarLogo" alt="" />
       <ScrollContainer>
   <ScrollPage page={0}>
     <Animator animation={batch(Sticky(), MoveOut(0, -900))}>

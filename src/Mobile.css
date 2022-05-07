@@ -54,6 +54,7 @@ h1,h2{
     width: 60%;
     font-size: 2.1rem;
     padding: 1.4rem;
+    margin: auto;
 }
 .fivesMobileTitle{
     font-size: 5rem;
@@ -93,7 +94,14 @@ h1,h2{
     font-size: 2rem;
     margin: auto;
 }
-
+.scheddarLogo{
+    position: fixed;
+    z-index: 100;
+    top: 3%;
+    width: 30%;
+    left: 35%;
+    
+}
 .ux-softwares-mobile{
     text-align: center;
     font-size: 3rem;
@@ -125,7 +133,7 @@ h1,h2{
     height: 200vh;
     width: 100vw;
 }
-@media screen and (min-width:700px) and (max-width:992px) {
+/* @media screen and (min-width:700px) and (max-width:992px) {
     .thine-mobile{
         font-size: 1.5rem;
         height: 30%;
@@ -159,4 +167,4 @@ h1,h2{
     .iubenda-mobile{
         border: 1px oslid red;
     }
-}
+} */

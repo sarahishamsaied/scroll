@@ -42,22 +42,23 @@ const Desktop = () => {
   const changeCounter = (e,section)=>{
     if(section === 1)
     {
-
-      if(e.type === 'start')
-      setCounter(1)
-      if(e.type === 'leave' && e.scrollDirection === 'FORWARD')
-      setCounter(2)
-      if(e.type === 'end' && e.scrollDirection === 'REVERSE')
-      setCounter(1)
+      if(e.type === 'start'|| e === 'init')
+        setCounter(1)
+      if( e.scrollDirection === 'FORWARD')
+        setCounter(2)
+      if(e.scrollDirection === 'REVERSE' || e.scrollDirection === 'PAUSED')
+        setCounter(1)
     }
-    else if(section === 2){
-
+     if(section === 2){
       if(e.type === 'start')
       setCounter(2)
       if(e.type === 'leave' && e.scrollDirection === 'REVERSE')
       setCounter(1)
+      if(e.type === 'end' && e.scrollDirection === 'REVERSE')
+      setCounter(1)
     }
-    else if(section === 3){
+     if(section === 3){
+      
       if(e.type === 'start')
       setCounter(3)
       if(e.type === 'leave' && e.scrollDirection === 'REVERSE')
@@ -136,7 +137,15 @@ const Desktop = () => {
             <Controller>
               <Scene pin duration={500}  >
                 {(p,e)=>{
-                   changeCounter(e,1)
+                  console.log("1:")
+                                    console.log(e)
+
+                    if(e.type === 'start'|| e === 'init')
+                    setCounter(1)
+                  if( e.scrollDirection === 'FORWARD')
+                    setCounter(2)
+                  if(e.scrollDirection === 'REVERSE' || e.scrollDirection === 'PAUSED')
+                    setCounter(1)
                   return <div className='aboutUsContainer' id='aboutUsContainer' >
                   <h2 className='aboutUs' >We build custom <span className='specialBlue'>softwares</span>  to ensure your business's <span  className='specialBlue'>success</span></h2>
                   <div className='sectionOneFooter w-100 d-flex justify-content-around'>
@@ -148,13 +157,20 @@ const Desktop = () => {
               </Scene>
               <Scene  duration={450}  offset={50} >
                 {(p,e)=>{
-                  changeCounter(e,2)                  
+                  console.log("2:")
+                  console.log(e)
+                   if(e.type === 'start')
+                   setCounter(2)
+                   if(e.type === 'leave' && e.scrollDirection === 'REVERSE')
+                   setCounter(1)
+                   if(e.type === 'end' && e.scrollDirection === 'REVERSE')
+                   setCounter(1)                
                   return <div className='checkOutContainer' id='checkOutContainer' >
                   <h2 className='checkOut specialBlue'  id='checkOut'>check out our latest work</h2>
                   </div>
                 }}
               </Scene>
-              <Scene pin duration={1000} offset = {50} reverse>
+              <Scene pin duration={1800} offset = {50} reverse>
                 {(p,e)=>{
                   return <div className='fivesContainer'id='fivesContainer' >
                   <h2 className='fives'> <span className='pink'>fives</span>, California’s next NFT marketplace.</h2>
@@ -167,7 +183,7 @@ const Desktop = () => {
                   <h2 className='thine' > <span className='specialBlue'>Thine.co</span>,  Assessing lawyers all over the US at top legal firms.</h2>
                   </div>
               </Scene>
-              <Scene pin duration={1800}  offset = {0} triggerElement = {"#iubendaContainer"}>
+              <Scene pin duration={1800}  offset = {0} >
                 <div className='iubendaContainer' id='iubendaContainer'>
                 <h2 className='iubenda' > <span className='pink'>Iubenda.com</span>, The world’s top compliance solutions company.</h2>
                 </div>
@@ -177,7 +193,12 @@ const Desktop = () => {
                 </Scene>
                 <Scene>
                   {(p,e)=>{
-                    changeCounter(e,3);
+                    console.log("3:")
+                    console.log(e)
+                     if(e.type === 'start')
+                     setCounter(3)
+                     if(e.type === 'leave' && e.scrollDirection === 'REVERSE')
+                     setCounter(2)
                     return <div className='UIUX'>
                         <Lottie options={defaultOptions} height={1000} width={1000} className = "ui-ux-icon"/>
                         <div className='UX-softwares'>
@@ -193,7 +214,7 @@ const Desktop = () => {
                     <h1 className='specialBlue frontendTitle'>Frontend Development</h1>
                     <div className='reactJsContainer'>
                       <h2>ReactJs</h2>
-                      <Lottie options={defaultOptions2} className = "reactIcon" height={290} width={290} />
+                      <Lottie options={defaultOptions2} className = "reactIcon" height={300} width={300} />
                     </div>
                   </div>
                 </Scene>
