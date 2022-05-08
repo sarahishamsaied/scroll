@@ -349,7 +349,7 @@ h1,h2{
   /* //For Big TV's (HD Screens)  */
       .bigContainer{
         width: 100vw;
-        height: 2250vh;
+        height: 2280vh;
       }
       .aboutUsContainer{
         height: 100vh;
@@ -418,7 +418,7 @@ h1,h2{
         height: 90vh;
         display: flex;
         align-items: flex-end;
-        color: white;
+        color: #064477;
         overflow: hidden;
       }
       .thineContainer{

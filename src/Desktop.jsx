@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect,useState} from 'react';
+import React, { Fragment, useEffect,useState,useRef} from 'react';
 import {Controller,Scene} from 'react-scrollmagic'
 import '../src/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css' 
@@ -12,7 +12,8 @@ import * as FiIcons from 'react-icons/fi'
 import * as AiIcons from 'react-icons/ai'
 import * as SiIcons from 'react-icons/si'
 //===================== Image URL ==================== 
-const IMAGE_URL ='/frames45/Vid1';
+// const IMAGE_URL ='/frames45/Vid1';
+const IMAGE_URL = 'http://136.244.119.160:8080/static/frames45/Vid1'
 const Desktop = () => {
   const defaultOptions = {
     loop: true,
@@ -31,6 +32,7 @@ const Desktop = () => {
     }
   };
   let [counter,setCounter] = useState(1)
+  const imageCache = useRef([]);
   let canvasRef = React.createRef();
   const [activeSections,setActiveSections] = useState({
     aboutUs:false,
@@ -86,9 +88,11 @@ const Desktop = () => {
       })
   }
   const preloadImages = () => {
+
     for (let i = 1; i < frameCount; i++) {
       const img = new Image();
       img.src = currentFrame(i);
+      imageCache.current.push(img);
     }
   };
 
@@ -169,9 +173,12 @@ const Desktop = () => {
                   </div>
               </Scene>
               <Scene pin duration={1800}  offset = {0} >
-                <div className='iubendaContainer' id='iubendaContainer'>
-                <h2 className='iubenda' > <span className='pink'>Iubenda.com</span>, The world’s top compliance solutions company.</h2>
-                </div>
+                {(p,e)=>{
+                  changeCounter(e,2);
+                  return  <div className='iubendaContainer' id='iubendaContainer'>
+                  <h2 className='iubenda' > <span className='pink'>Iubenda.com</span>, The world’s top compliance solutions company.</h2>
+                  </div>
+                }}
                 </Scene>
                 <Scene>
                 <h1 className='ourServices' id='ourServices'>Our Services</h1>
