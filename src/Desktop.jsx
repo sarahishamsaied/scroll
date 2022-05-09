@@ -12,9 +12,13 @@ import * as FiIcons from 'react-icons/fi'
 import * as AiIcons from 'react-icons/ai'
 import * as SiIcons from 'react-icons/si'
 //===================== Image URL ==================== 
-// const IMAGE_URL ='/frames45/Vid1';
-const IMAGE_URL = 'http://136.244.119.160:8080/static/frames45/Vid1'
+const IMAGE_URL ='/frames45/Vid1';
+// const IMAGE_URL = 'http://136.244.119.160:8080/static/frames45/Vid1'
 const Desktop = () => {
+  const [section,setSection] = useState(1)
+  const section2Ref = useRef([])
+  const section3Ref = useRef(null)
+  const section1Ref = useRef(null)
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -41,32 +45,36 @@ const Desktop = () => {
   })
   const html = document.documentElement;
   const frameCount = 741;
-  const changeCounter = (e,section)=>{
-    if(section === 1)
-    {
-      if(e.type === 'start'|| e === 'init')
-        setCounter(1)
-      if( e.scrollDirection === 'FORWARD')
-        setCounter(2)
-      if(e.scrollDirection === 'REVERSE' || e.scrollDirection === 'PAUSED')
-        setCounter(1)
-    }
-     if(section === 2){
-      if(e.type === 'start')
-      setCounter(2)
-      if(e.type === 'leave' && e.scrollDirection === 'REVERSE')
-      setCounter(1)
-      if(e.type === 'end' && e.scrollDirection === 'REVERSE')
-      setCounter(1)
-    }
-     if(section === 3){
-      
-      if(e.type === 'start')
-      setCounter(3)
-      if(e.type === 'leave' && e.scrollDirection === 'REVERSE')
-      setCounter(2)
-    }
-  }
+  // const changeCounter = (e,section)=>{
+
+  //   if(section === 1)
+  //   {
+  //     if(e.type === 'start' || e.state === 'DURING' || e.state === 'AFTER')
+  //     setCounter(section)
+  //     if(e.scrollDirection === 'REVERSE' || e.scrollDirection === 'PAUSED')
+  //     setCounter(section)
+  //   }
+  //    if(section === 2){
+
+  //     if(e.type === 'start'){
+  //       setCounter(2)
+  //     }
+  //     if((e.type === 'leave' && e.scrollDirection === 'REVERSE') || e.state === 'BEFORE')
+  //     {
+  //      setCounter(1)
+  //     }
+  //     if(e.type === 'end' && e.scrollDirection === 'REVERSE' )
+  //     setCounter(1) 
+  //   }
+  //    if(section === 3){
+  //               if(e.type === 'start')
+  //                 setCounter(3)
+  //                 if(e.type === 'leave' && e.scrollDirection === 'REVERSE' && e.state === 'BEFORE')
+  //                 {
+  //                   setCounter(2);
+  //                 }
+  //   }
+  // }
   const scrollSpy = (counter)=>{
     if(counter === 1)
         setActiveSections({
@@ -127,10 +135,33 @@ const Desktop = () => {
     initialFrameSetup(img, ctx);
     preloadImages();
     onScroll(img, ctx);
+    return () => {
+      // Clean up the subscription
+    }
   }, []);
+
   useEffect(()=>{
+
     scrollSpy(counter)
   },[counter])
+  useEffect(()=>{
+    if(section2Ref!==null && section3Ref)
+    {
+      let section2Offset = section2Ref.current.getBoundingClientRect().bottom;
+      let section3Offset = section3Ref.current.getBoundingClientRect().bottom+5000 ;
+      let section1Offset = section1Ref.current.getBoundingClientRect().top;
+
+      window.addEventListener("scroll",()=>{
+        if(window.scrollY <= section1Offset)
+        setCounter(1)
+        else if( window.scrollY <section3Offset && window.scrollY > section2Offset)
+        setCounter(2)
+        else if(window.scrollY  > section3Offset)
+        setCounter(3)
+      })
+    }
+   
+  },[section2Ref,section3Ref,section1Ref])
   const currentFrame = (index) =>`${IMAGE_URL}${index.toString().padStart(4, '0')}.png`;
   
   return ( <Fragment>
@@ -139,10 +170,9 @@ const Desktop = () => {
             <canvas ref={canvasRef} id='globe' width={1920} height = {1080} />
             <div className='bigContainer'  >
             <Controller>
-              <Scene pin duration={500}  >
+              <Scene pin duration={500} triggerElement = {"#aboutUsContainer"} >
                 {(p,e)=>{
-                   changeCounter(e,1)
-                  return <div className='aboutUsContainer' id='aboutUsContainer' >
+                  return <div ref={section1Ref}  className='aboutUsContainer' id='aboutUsContainer' >
                   <h2 className='aboutUs' >We build custom <span className='specialBlue'>softwares</span>  to ensure your business's <span  className='specialBlue'>success</span></h2>
                   <div className='sectionOneFooter w-100 d-flex justify-content-around'>
                 <h3>designing.</h3>
@@ -153,15 +183,14 @@ const Desktop = () => {
               </Scene>
               <Scene  duration={450}  offset={50} >
                 {(p,e)=>{
-                  changeCounter(e,2)                  
-                  return <div className='checkOutContainer' id='checkOutContainer' >
+                  return <div ref={section2Ref} className='checkOutContainer' id='checkOutContainer' >
                   <h2 className='checkOut specialBlue'  id='checkOut'>check out our latest work</h2>
                   </div>
                 }}
               </Scene>
               <Scene pin duration={1800} offset = {50} reverse>
                 {(p,e)=>{
-                  return <div className='fivesContainer'id='fivesContainer' >
+                  return <div  className='fivesContainer'id='fivesContainer' >
                   <h2 className='fives'> <span className='pink'>fives</span>, California’s next NFT marketplace.</h2>
                   </div>
                 }}
@@ -172,20 +201,18 @@ const Desktop = () => {
                   <h2 className='thine' > <span className='specialBlue'>Thine.co</span>,  Assessing lawyers all over the US at top legal firms.</h2>
                   </div>
               </Scene>
-              <Scene pin duration={1800}  offset = {0} >
+              <Scene pin duration={2000}  offset = {0} >
                 {(p,e)=>{
-                  changeCounter(e,2);
                   return  <div className='iubendaContainer' id='iubendaContainer'>
                   <h2 className='iubenda' > <span className='pink'>Iubenda.com</span>, The world’s top compliance solutions company.</h2>
                   </div>
                 }}
                 </Scene>
                 <Scene>
-                <h1 className='ourServices' id='ourServices'>Our Services</h1>
+                <h1   className='ourServices' id='ourServices'>Our Services</h1>
                 </Scene>
                 <Scene>
                   {(p,e)=>{
-                    changeCounter(e,3);
                     return <div className='UIUX'>
                         <Lottie options={defaultOptions} height={1000} width={1000} className = "ui-ux-icon"/>
                         <div className='UX-softwares'>
@@ -197,7 +224,7 @@ const Desktop = () => {
                   }}
                 </Scene>
                 <Scene>
-                  <div className = "frontendDevelopmentContainer">
+                  <div ref={section3Ref}className = "frontendDevelopmentContainer">
                     <h1 className='specialBlue frontendTitle'>Frontend Development</h1>
                     <div className='reactJsContainer'>
                       <h2>ReactJs</h2>

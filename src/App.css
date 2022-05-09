@@ -210,7 +210,7 @@ h1,h2{
   align-items: center;
 }
 .reactJsContainer img{
-  width: 20%;
+  width: 50%;
 }
 .reactJsContainer h2{
   font-size: 4rem;
@@ -284,11 +284,6 @@ h1,h2{
       }
 
   }
-  .active-scroll-spy {
-    background-color: yellowgreen !important;
-    border-radius: 15px;
-  }
-  
   @media screen and (min-width: 992px) and (max-width:1279px) {
   /* //For Large Laptops */  
   .bigContainer {
@@ -349,7 +344,7 @@ h1,h2{
   /* //For Big TV's (HD Screens)  */
       .bigContainer{
         width: 100vw;
-        height: 2280vh;
+        height: 2400vh;
       }
       .aboutUsContainer{
         height: 100vh;
@@ -393,6 +388,15 @@ h1,h2{
       .frontendTitle,.backendTitle{
         font-size: 4rem;
       }
+      .backendContainer,.frontendDevelopmentContainer{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0;
+      }
+
 
 
   }
@@ -403,6 +407,7 @@ h1,h2{
   .bigContainer{
       height: 1900vh;
     }
+
     .aboutUsContainer{
         height: 100vh;
         padding: 50px;

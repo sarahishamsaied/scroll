@@ -19,6 +19,7 @@
     "react-scripts": "5.0.1",
     "react-scroll-motion": "^0.2.6",
     "react-scrollmagic": "^2.3.0",
+    "react-scrollspy-navigation": "^1.0.2",
     "react-ui-scrollspy": "^2.1.0",
     "scrollmagic": "^2.0.8",
     "web-vitals": "^2.1.4"

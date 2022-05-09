@@ -1,5 +1,6 @@
 import React from 'react'
 import {Navbar,Nav,Container} from 'react-bootstrap'
+
  const Sidebar = ({activeSections}) => {
    const {aboutUs,ourClients,portfolio} = {...activeSections};
   return   <Navbar bg="transparent" variant="dark" className='sidebar'>
