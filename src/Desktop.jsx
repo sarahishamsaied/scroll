@@ -12,8 +12,8 @@ import * as FiIcons from 'react-icons/fi'
 import * as AiIcons from 'react-icons/ai'
 import * as SiIcons from 'react-icons/si'
 //===================== Image URL ==================== 
-const IMAGE_URL ='/frames45/Vid1';
-// const IMAGE_URL = 'http://136.244.119.160:8080/static/frames45/Vid1'
+// const IMAGE_URL ='/frames45/Vid1';
+const IMAGE_URL = 'http://136.244.119.160:8080/frames45/Vid1'
 const Desktop = () => {
   const section2Ref = useRef([])
   const section3Ref = useRef(null)
@@ -134,9 +134,6 @@ const Desktop = () => {
     initialFrameSetup(img, ctx);
     preloadImages();
     onScroll(img, ctx);
-    return () => {
-      // Clean up the subscription
-    }
   }, []);
 
   useEffect(()=>{
