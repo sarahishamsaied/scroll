@@ -12,8 +12,8 @@ import * as FiIcons from 'react-icons/fi'
 import * as AiIcons from 'react-icons/ai'
 import * as SiIcons from 'react-icons/si'
 //===================== Image URL ==================== 
-// const IMAGE_URL ='/frames45/Vid1';
-const IMAGE_URL = 'http://136.244.119.160:8080/static/frames45/Vid1'
+const IMAGE_URL ='/frames45/Vid1';
+// const IMAGE_URL = 'http://136.244.119.160:8080/static/frames45/Vid1'
 const Desktop = () => {
   const section2Ref = useRef([])
   const section3Ref = useRef(null)
@@ -147,11 +147,11 @@ const Desktop = () => {
     if(section2Ref!==null && section3Ref)
     {
       let section2Offset = section2Ref.current.getBoundingClientRect().bottom;
-      let section3Offset = section3Ref.current.getBoundingClientRect().bottom+5000 ;
+      let section3Offset = section3Ref.current.getBoundingClientRect().bottom+8000 ;
       let section1Offset = section1Ref.current.getBoundingClientRect().top;
 
       window.addEventListener("scroll",()=>{
-        if(window.scrollY <= section1Offset)
+        if(window.scrollY <= section2Offset)
         setCounter(1)
         else if( window.scrollY <section3Offset && window.scrollY > section2Offset)
         setCounter(2)

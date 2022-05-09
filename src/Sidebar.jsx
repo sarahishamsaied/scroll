@@ -6,7 +6,10 @@ import {Navbar,Nav,Container} from 'react-bootstrap'
   return   <Navbar bg="transparent" variant="dark" className='sidebar'>
   <Container>
   <Nav className="m-auto">
-  <Nav.Link href="#aboutUsContainer"   className={aboutUs?'link pink ':'link text-primary'}>About us</Nav.Link>
+  <Nav.Link   onClick={()=>{window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  })}} href = "#aboutUs" className={aboutUs?'link pink ':'link text-primary'}>About us</Nav.Link>
     <Nav.Link href="#fivesContainer" className={ourClients?'link pink': 'link text-primary'}>Our clients</Nav.Link>
     <Nav.Link href="#ourServices" className={portfolio?'link pink ':'link text-primary'}>Portfolio</Nav.Link>
   </Nav>

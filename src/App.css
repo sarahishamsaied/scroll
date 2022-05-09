@@ -288,7 +288,7 @@ h1,h2{
   /* //For Large Laptops */  
   .bigContainer {
           width: 100vw;
-          height: 3100vh;
+          height: 3300vh;
       }
       .fivesContainer{
         display:flex;
@@ -334,7 +334,7 @@ h1,h2{
       .frontendTitle,.backendTitle{
         font-size: 3rem;
       }
-      .frontendDevelopmentContainer{
+      .frontendDevelopmentContainer,.backendContainer{
         overflow: hidden;
         margin-top: 0;
       }
@@ -402,10 +402,10 @@ h1,h2{
   }
   
   
-  @media screen and (min-width: 1920px) and (max-width:3839px) {
+  @media screen and (min-width: 1920px) and (max-width:2900px) {
   /* //For Projectors or Higher Resolution Screens (Full HD) */ 
   .bigContainer{
-      height: 1900vh;
+      height: 1950vh;
     }
 
     .aboutUsContainer{
@@ -475,11 +475,100 @@ h1,h2{
       }
 
   }
-  @media screen and (min-width: 3840px){
+  @media screen and (min-width:2901px) and (max-width:3895px){
+    .bigContainer {
+      width: 100vw;
+      height: 1700vh;
+  }
+  .UX-softwares h1{
+    font-size: 7rem;
+  }
+  .ourServices{
+    font-size: 8rem;
+  }
+  .aboutUs{
+    font-size: 9rem;
+  }
+  .aboutUsContainer{
+    padding: 50px;
+    height: 100vh;
+  }
+  .aboutUsContainer h3{
+    font-size: 3rem;
+  }
+  .header{
+    width: 100vw;
+  }
+  .header h1{
+    font-size: 4.5rem;
+    padding: 40px 0;
+  }
+  .sidebar{
+    top: 0;
+    right: -10%;
+    font-size: 5rem;
+  }
+  .checkOut{
+    font-size: 10rem;
+    height: 200vh;
+    display: flex;
+    align-items: flex-start;
+    color: #0B91FF;
+  }
+  .fives{
+    font-size: 12rem;
+  }
+  .fivesContainer{
+    height: 200vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  .thine{
+    font-size: 9rem;
+
+  }
+  .thineContainer{
+    height: 200vh;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .iubendaContainer{
+    height: 200vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  .iubenda{
+    font-size: 7rem;
+  }
+  .backendContainer,.frontendDevelopmentContainer{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+  }
+  .frontendDevelopmentContainer h2,.backendContainer h2{
+    font-size: 10rem;
+  }
+  .backendContainer img{
+    width: 90%;
+  }
+  .frontendTitle{
+    font-size: 7rem;
+  }
+  .backendTitle{
+    font-size: 11rem;
+  }
+  }
+  @media screen and (min-width: 3896px){
   /* //For 4K Displays (Ultra HD) */
       .bigContainer {
           width: 100vw;
-          height: 1700vh;
+          height: 1900vh;
       }
       .UX-softwares h1{
         font-size: 10rem;
@@ -507,17 +596,17 @@ h1,h2{
       .sidebar{
         top: 0;
         right: -10%;
-        font-size: 5rem;
+        font-size: 3rem;
       }
       .checkOut{
         font-size: 12rem;
         height: 200vh;
         display: flex;
-        align-items: flex-end;
-        color: white;
+        align-items: flex-start;
+        color: #0B91FF;
       }
       .fives{
-        font-size: 12rem;
+        font-size: 8rem;
       }
       .fivesContainer{
         height: 200vh;
