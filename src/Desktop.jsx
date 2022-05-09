@@ -12,10 +12,9 @@ import * as FiIcons from 'react-icons/fi'
 import * as AiIcons from 'react-icons/ai'
 import * as SiIcons from 'react-icons/si'
 //===================== Image URL ==================== 
-const IMAGE_URL ='/frames45/Vid1';
-// const IMAGE_URL = 'http://136.244.119.160:8080/static/frames45/Vid1'
+// const IMAGE_URL ='/frames45/Vid1';
+const IMAGE_URL = 'http://136.244.119.160:8080/static/frames45/Vid1'
 const Desktop = () => {
-  const [section,setSection] = useState(1)
   const section2Ref = useRef([])
   const section3Ref = useRef(null)
   const section1Ref = useRef(null)
@@ -237,7 +236,7 @@ const Desktop = () => {
                     <h1 className='specialBlue backendTitle'>Backend Development</h1>
                     <div className='reactJsContainer'>
                       <h2>NodeJs</h2>
-                      <img src={nodeJsLogo} alt = 'nodeJs Logo '/>
+                      <img src={nodeJsLogo} alt = 'nodeJs Logo'/>
                     </div>
                   </div>
                 </Scene>
